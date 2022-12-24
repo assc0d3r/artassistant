@@ -40,19 +40,19 @@ FILDLT_CNL = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "EvaMaria")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+DATABASE_NAME = environ.get('DATABASE_NAME', "ARTASSISTANT")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'coder')
 
 # Channel Button Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/kdbotz_support')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/kd_botz')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'kdbotz_Support')
-MSG_ALRT = environ.get('MSG_ALRT', 'Share and Support Us')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/assimilat0r')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/assimilat0r')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '@assimilat0r Support')
+MSG_ALRT = environ.get('MSG_ALRT', 'Subscribe To @assimilat0r')
 
 # Custom Chats
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', 0))
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
-FILE_CHANNEL_LINK = environ.get('FILE_CHANNEL_LINK', 't.me/movieshouse8')
+FILE_CHANNEL_LINK = environ.get('FILE_CHANNEL_LINK', 't.me/assimilat0r')
 
 # Log Channels
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
@@ -81,7 +81,7 @@ AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 MAUTO_DELETE = is_enabled((environ.get('MAUTO_DELETE', "True")), True)
 
 # Delete Time
-DELETE_TIME = int(environ.get('DELETE_TIME', 600))
+DELETE_TIME = int(environ.get('DELETE_TIME', 300))
 SPL_DELETE_TIME = int(environ.get('SPL_DELETE_TIME', 15))
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
