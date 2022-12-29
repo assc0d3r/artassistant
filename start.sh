@@ -1,11 +1,11 @@
-#if [ -z $UPSTREAM_REPO ]
-#then
- # echo "Cloning main Repository"
-  #git clone https://github.com/assc0d3r/artassistant.git /Lucifer
-# else
+if [ -z $UPSTREAM_REPO ]
+then
+ echo "Cloning main Repository"
+ git clone https://github.com/assc0d3r/artassistant.git /Lucifer
+ else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /Lucifer
-#fi
+fi
 cd /Lucifer
 pip3 install -U -r requirements.txt
 echo "Starting Lucifer...."
