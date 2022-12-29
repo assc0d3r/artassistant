@@ -5,7 +5,7 @@
 # else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /Lucifer
-fi
+#fi
 cd /Lucifer
 pip3 install -U -r requirements.txt
 echo "Starting Lucifer...."
