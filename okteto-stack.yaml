@@ -2,7 +2,7 @@
   services:
     worker:
      build: .
-      environment:
+     environment:
       BOT_TOKEN: $BOT_TOKEN
       API_ID: $API_ID
       API_HASH: $API_HASH
