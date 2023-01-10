@@ -886,6 +886,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
         deleted = str(deleted)
         await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} Exe Fɪʟᴇs.</b>") 
         
+     elif query.data == "srt":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'srt',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('srt File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} srt Fɪʟᴇs.</b>")
+        
     elif query.data == "camrip":
         k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
         files, next_offset, total = await get_bad_files(
