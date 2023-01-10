@@ -713,8 +713,8 @@ async def deletemultiplefiles(bot, message):
             InlineKeyboardButton("CᴀᴍRɪᴘ", callback_data="camrip"),
             InlineKeyboardButton("S-Pʀɪɴᴛ", callback_data="sprint")
           ],[
-            InlineKeyboardButton("document", callback_data="document"),
-            InlineKeyboardButton("audio", callback_data="audio")
+            InlineKeyboardButton("exe", callback_data="exe"),
+            InlineKeyboardButton("srt", callback_data="srt")
           ],[
             InlineKeyboardButton("Cᴀɴᴄᴇʟ", callback_data="close_data")
           ]]
