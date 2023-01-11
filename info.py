@@ -26,7 +26,7 @@ UPSTREAM_REPO = environ.get('UPSTREAM_REPO')
 PICS = (environ.get('PICS', 'https://telegra.ph/file/705593c3ae56831c8e565.jpg https://telegra.ph/file/869de5ba9ac7e61559f24.jpg https://telegra.ph/file/4f3d1cc0b1375ae596b16.jpg')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://w.wallhaven.cc/full/p9/wallhaven-p99kvp.png")
 SPELL_IMG = environ.get("SPELL_IMG", "https://w.wallhaven.cc/full/l8/wallhaven-l88yp2.png")
-NEWGRP = environ.get("NEWGRP", "https://telegra.ph/file/705593c3ae56831c8e565.jpg")
+NEWGRP = environ.get("NEWGRP", "https://w.wallhaven.cc/full/jx/wallhaven-jxxe7y.png")
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
