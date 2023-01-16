@@ -6,7 +6,7 @@ from Script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
+from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, RQST_LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, SUPPORT_GROUP
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
@@ -700,26 +700,27 @@ async def send_chatmsg(bot, message):
 
 @Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
 async def deletemultiplefiles(bot, message):
-    btn = [[
-            InlineKeyboardButton("PʀᴇDVD", callback_data="predvd"),
-            InlineKeyboardButton("PʀᴇDVD Rɪᴘ", callback_data="predvdrip")
-          ],[
-            InlineKeyboardButton("HDᴛs", callback_data="hdts"),
-            InlineKeyboardButton("HD-ᴛs", callback_data="hdtss")
-          ],[
-            InlineKeyboardButton("HDCᴀᴍ", callback_data="hdcam"),
-            InlineKeyboardButton("HD-Cᴀᴍ", callback_data="hdcams")
-          ],[
-            InlineKeyboardButton("CᴀᴍRɪᴘ", callback_data="camrip"),
-            InlineKeyboardButton("S-Pʀɪɴᴛ", callback_data="sprint")
-          ],[
-            InlineKeyboardButton("480-p", callback_data="480p"),
-            InlineKeyboardButton("srt", callback_data="srt")
-          ],[
-            InlineKeyboardButton("Cᴀɴᴄᴇʟ", callback_data="close_data")
-          ]]
-    await message.reply_text(
-        text="<b>Sᴇʟᴇᴄᴛ Tʜᴇ Tʏᴘᴇ Oғ Fɪʟᴇs Yᴏᴜ Wᴀɴᴛ Tᴏ Dᴇʟᴇᴛᴇ..?</b>",
-        reply_markup=InlineKeyboardMarkup(btn),
-        quote=True
-    ) 
+    chat_type = message.chat.type
+    if chat_type != enums.ChatType.PRIVATE: #No need to use this command on groups
+        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command won't work in groups. It only works on my PM !</b>")
+    else:
+        pass
+    try:
+        keyword = message.text.split(" ", 1)[1] #extracting keyword from command
+    except: #if extracting failed
+        return await message.reply_text(f"Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
+    k = await bot.send_message(chat_id=message.chat.id, text=f"<b>Fɪɴᴅɪɴɢ {keyword} Fɪʟᴇs.</b>")
+    files, next_offset, total = await get_bad_files(keyword) #fetching files from db
+    await k.edit_text(f"<b>Tᴏᴛᴀʟ {total} {keyword} Fɪʟᴇs.</b>")
+    deleted = 0
+    for file in files:
+        file_ids = file.file_id
+        file_name = file.file_name
+        result = await Media.collection.delete_one({
+            '_id': file_ids,
+        })
+        if result.deleted_count:
+            logger.info(f'deleted {keyword}! Successfully deleted {file_name}')
+        deleted += 1
+    deleted = str(deleted)
+    await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} {keyword} Fɪʟᴇs.</b>")
