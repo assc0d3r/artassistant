@@ -1376,7 +1376,7 @@ async def advantage_spell_chok(msg):
     await asyncio.sleep(SPL_DELETE_TIME)
     await spl1.delete()
     await msg.delete()
-    return
+    return 
 
 async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
