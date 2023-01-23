@@ -10,7 +10,7 @@ async def media(bot, message):
     """Media Handler"""
     for file_type in ("document", "video", "audio"):
         media = getattr(message, file_type, None)
-        if media is not None:
+        if media is not video:
             break
     else:
         return
