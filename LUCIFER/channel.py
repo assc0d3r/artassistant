@@ -9,7 +9,7 @@ media_filter = filters.document | filters.video | filters.audio
 async def media(bot, message):
     """Media Handler"""
     for file_type in ("document", "video", "audio"):
-        media = getattr(message, file_type, None)
+        media = getattr(message, file_type, video)
         if media is not video:
             break
     else:
