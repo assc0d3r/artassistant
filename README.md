@@ -22,6 +22,10 @@
 <a href="https://github.com/kdbotz/Lucifer/commits/kdbotz"> <img src="https://img.shields.io/github/last-commit/kdbotz/Lucifer?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
 
  ━━━━━━━━━━━━━━━━━━━━
+## Deploy To Render 
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/assc0d3r/artassistant)
+
 ## ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [ʟᴜᴄɪғᴇʀ](t.me/filter_lucifer_bot)
 
 <details>
