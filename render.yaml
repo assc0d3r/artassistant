@@ -103,6 +103,5 @@ services:
       - key: SPL_DELETE_TIME
         sync: false
       - key: DELETE_TIME  
-        sync: false
-     sync: false        
+        sync: false             
     autoDeploy: false
