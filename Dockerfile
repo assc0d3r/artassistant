@@ -10,4 +10,5 @@ RUN mkdir /LUCIFER
 WORKDIR /LUCIFER
 COPY start.sh /start.sh
 COPY app.py /app.py
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "gunicorn app:app & python3 /start.sh"]
+#CMD ["/bin/bash", "/start.sh"]
