@@ -45,15 +45,15 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "ARTASSISTANT ")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'coder')
 
 # Channel Button Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/assimilat0r')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/assimilat0r')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'assimilat0r')
-MSG_ALRT = environ.get('MSG_ALRT', 'Subscribe to Join @assimilat0r')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/assimil80r')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/assimil80r')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'assimil80r')
+MSG_ALRT = environ.get('MSG_ALRT', 'Subscribe to Join @assimil80r')
 
 # Custom Chats
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', 0))
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
-FILE_CHANNEL_LINK = environ.get('FILE_CHANNEL_LINK', 't.me/assimilat0r')
+FILE_CHANNEL_LINK = environ.get('FILE_CHANNEL_LINK', 't.me/assimil80r')
 
 # Log Channels
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
